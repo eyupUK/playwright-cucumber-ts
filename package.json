@@ -1,0 +1,40 @@
+{
+  "name": "auto-testing",
+  "version": "1.0.0",
+  "description": "Playwright Cucumber TS",
+  "main": "index.js",
+  "config": {
+    "browser": "chromium"
+  },
+  "scripts": {
+    "debug": "cross-env ENV=staging PWDEBUG=1 DEBUG=pw:api cucumber-js --config=config/cucumber.js",
+    "pretest": "npx ts-node src/helper/report/init.ts",
+    "test": "cross-env ENV=staging cucumber-js --config=config/cucumber.js || true",
+    "test:prod": "cross-env ENV=prod cucumber-js --config=config/cucumber.js || true",
+    "test:qa": "cross-env ENV=QA cucumber-js --config=config/cucumber.js || true",
+    "test:local": "cross-env ENV=local cucumber-js --config=config/cucumber.js || true",
+    "test-env": "cucumber-js --config=config/cucumber.js || true",
+    "posttest": "npx ts-node src/helper/report/report.ts",
+    "test:failed": "cross-env ENV=staging cucumber-js --config=config/cucumber.js -p rerun @rerun.txt"
+  },
+  "keywords": [],
+  "author": "EyupUK",
+  "license": "",
+  "devDependencies": {
+    "@cucumber/cucumber": "^11.1.1",
+    "@faker-js/faker": "^9.4.0",
+    "@playwright/test": "^1.50.1",
+    "@types/node": "^22.13.1",
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.4.7",
+    "dotenv-cli": "^8.0.0",
+    "fs-extra": "^11.2.0",
+    "multiple-cucumber-html-reporter": "^3.8.0",
+    "ts-node": "^10.9.2",
+    "winston": "^3.17.0"
+  },
+  "dependencies": {
+    "axios": "^1.7.9",
+    "reflect-metadata": "^0.2.2"
+  }
+}
