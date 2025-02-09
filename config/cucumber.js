@@ -6,11 +6,11 @@ module.exports = {
             snippetInterface: "async-await"
         },
         paths: [
-            "src/test/features/"
+            "src/test/features/**/*.feature"
         ],
-        dryRun: false,
+        dryRun: true,
         require: [
-            "src/test/steps/**/*.ts",
+            "src/test/stepDefs/**/*.ts",
             "src/hooks/hooks.ts"
         ],
         requireModule: [
@@ -30,7 +30,7 @@ module.exports = {
         },
         dryRun: false,
         require: [
-            "src/test/steps/**/*.ts",
+            "src/test/stepDefs/**/*.ts",
             "src/hooks/hooks.ts"
         ],
         requireModule: [
