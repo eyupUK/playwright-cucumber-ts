@@ -6,9 +6,9 @@ module.exports = {
             snippetInterface: "async-await"
         },
         paths: [
-            "src/test/features/**/*.feature"
+            "src/test/features/"
         ],
-        dryRun: true,
+        dryRun: false,
         require: [
             "src/test/stepDefs/**/*.ts",
             "src/hooks/hooks.ts"

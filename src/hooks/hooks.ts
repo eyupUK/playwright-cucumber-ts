@@ -1,7 +1,7 @@
 import { BeforeAll, AfterAll, Before, After, Status, BeforeStep, AfterStep } from "@cucumber/cucumber";
 import { Browser, BrowserContext } from "@playwright/test";
 import { fixture } from "./pageFixture";
-import { invokeBrowser } from "../helper/browsers/browserManager";
+import { invokeBrowser, browserType } from "../helper/browsers/browserManager";
 import { getEnv } from "../helper/env/env";
 import { createLogger } from "winston";
 import { options } from "../helper/util/logger";
@@ -20,12 +20,13 @@ BeforeAll(async function () {
 Before({ tags: "not @auth and not @api" }, async function ({ pickle }) {
     console.log("Browser is set BEFORE for neither auth nor api scenarios");
     browser = await invokeBrowser();
+    console.log("Browser is set to " + browserType);
     const scenarioName = pickle.name + pickle.id
     context = await browser.newContext({
-        viewport: { width: 1470, height: 832 },
+        viewport: { width: 2560, height: 1337 },
         recordVideo: {
             dir: "test-results/videos",
-            size: { width: 1470, height: 832 }
+            size: { width: 2560, height: 1337 }
         },
     });
     await context.tracing.start({
@@ -38,7 +39,7 @@ Before({ tags: "not @auth and not @api" }, async function ({ pickle }) {
     fixture.page = page;
     fixture.logger = createLogger(options(scenarioName));
     fixture.logger.info("Environment set to: " + environment);
-    fixture.logger.info("Browser is set to " + browser.browserType);
+    fixture.logger.info("Browser is set to " + browserType);
     fixture.logger.info(`Before Scenario: ${pickle.name}`);
 });
 
@@ -71,7 +72,7 @@ Before({ tags: '@auth and not @api' }, async function ({ pickle }) {
     //     await page.context().addCookies(authState.cookies);
     //   }
       fixture.logger.info("Environment set to: " + environment);
-      fixture.logger.info("Browser is set to " + browser.browserType);
+      fixture.logger.info("Browser is set to " + browserType);
       fixture.logger.info(`Before Scenario: ${pickle.name}`);
 });
 

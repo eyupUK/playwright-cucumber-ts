@@ -1,8 +1,8 @@
 @loginExciting
 Feature: login to Exciting App
-  As a user
-  I want to login to Excjsoniting App
-  So that I can access my account
+  # As a user
+  # I want to login to Exciting App
+  # So that I can access my account
 
   Background:
     Given I am on the login page
