@@ -6,29 +6,24 @@ import { fixture } from "../../../hooks/pageFixture";
 setDefaultTimeout(60 * 1000 * 2)
 
 
-  Given('I am on the login page', async function () {
+  // Add your step definitions here
 
-  });
+Given('I am on the login page', async function () {
+  // code to navigate to login page
+});
 
+When('I enter valid credentials', async function () {
+  // code to enter valid credentials
+});
 
-  When('I enter valid credentials', async function () {
-    // Write code here that turns the phrase above into concrete actions
-    return 'pending';
-  });
+Then('I should be logged in', async function () {
+  // code to verify successful login
+});
 
-  Then('I should be logged in', async function () {
-    // Write code here that turns the phrase above into concrete actions
-    return 'pending';
-  });
+When('I enter invalid credentials', async function () {
+  // code to enter invalid credentials
+});
 
-
-  When('I enter invalid credentials', async function () {
-    // Write code here that turns the phrase above into concrete actions
-    return 'pending';
-  });
-
-
-  Then('I should see an error message', async function () {
-    // Write code here that turns the phrase above into concrete actions
-    return 'pending';
-  });
+Then('I should see an error message', async function () {
+  // code to verify error message
+});
