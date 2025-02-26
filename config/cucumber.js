@@ -11,7 +11,7 @@ module.exports = {
         dryRun: false,
         require: [
             "src/test/stepDefs/**/*.ts",
-            "src/hooks/hooks.ts"
+            "src/hooks/hooks.ts" 
         ],
         requireModule: [
             "ts-node/register"
@@ -46,3 +46,7 @@ module.exports = {
         retry: 2
     }
 }
+
+// npm config set browser=chromium
+// npm run test --tags="@smoke"    
+// npm run test:failed

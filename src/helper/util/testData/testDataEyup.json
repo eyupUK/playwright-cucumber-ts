@@ -1,0 +1,17 @@
+{
+    "name": "my-app",
+    "username": "eyup",
+    "password": "123456",
+    "email": "email@email.com",
+    "phone": "1234567890",
+    "version": "1.0.0",
+    "description": "A sample Node.js application",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "dependencies": {
+        "express": "^4.17.1",
+        "dotenv": "^8.2.0"
+    }
+}
