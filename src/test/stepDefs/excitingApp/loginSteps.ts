@@ -5,6 +5,11 @@ import { fixture } from "../../../hooks/pageFixture";
 
 setDefaultTimeout(60 * 1000 * 2)
 
+let baseUrl: string = process.env.BASEURL; 
+const testdata = process.env.TESTDATA_PATH;
+const jsonData = require(testdata);
+const username = jsonData.username;
+const password = jsonData.password;
 
   // Add your step definitions here
 
