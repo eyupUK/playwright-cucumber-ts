@@ -26,10 +26,10 @@ Before({ tags: "not @auth" }, async function ({ pickle }) {
     console.log("Scenario: " + pickle.name);
     const scenarioName = pickle.name + pickle.id;
     context = await browser.newContext({
-        //viewport: { width: 1470, height: 832 },
+        viewport: { width: 2560, height: 1343 },
         recordVideo: {
             dir: "test-results/videos",
-            //size: { width: 1470, height: 832 }
+            size: { width: 2560, height: 1343 }
         },
     });
     await context.tracing.start({
@@ -55,11 +55,11 @@ Before({ tags: '@auth' }, async function ({ pickle }) {
     console.log("Browser is set to " + browserType);
     const scenarioName = pickle.name + pickle.id
     context = await browser.newContext({
-        viewport: { width: 1470, height: 832 },
+        viewport: { width: 2560, height: 1343 },
         storageState: getStorageState(pickle.name),
         recordVideo: {
             dir: "test-results/videos",
-            size: { width: 1470, height: 832 }
+            size: { width: 2560, height: 1343 }
         },
     });
     await context.tracing.start({
