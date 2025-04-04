@@ -6,9 +6,10 @@ declare global {
             BROWSER: "chromium" | "firefox" | "webkit",
             ENV: "staging" | "prod" | "QA" | "dev",
             BASEURL: string,
-            HEAD: "true" | "false",
+            HEAD: string,
             TESTDATA_PATH_A_APP: string
             TESTDATA_PATH_B_APP: string
         }
     }
 }
+

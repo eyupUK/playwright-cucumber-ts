@@ -1,12 +1,12 @@
 import { expect, Page } from "@playwright/test";
 import PlaywrightWrapper from "../../helper/wrapper/PlaywrightWrapper";
 import { faker } from '@faker-js/faker';
-import ListQuotesPage from "../excitingApp/listQuotesPage";
+import ListPage from "./listPage";
 import { fixture } from "../../hooks/pageFixture";
 
-const jsonData = require('../../helper/util/test-data/testDataEyup.json');
+const jsonData = require('../../helper/util/testData/testDataEyup.json');
 
-let listQuotesPage: ListQuotesPage;
+let listPage: ListPage;
 
 const title = jsonData.title.trim();
 let name: string;
@@ -18,7 +18,7 @@ const phone = jsonData.phone;
 let matterTypeTestData: string;
 let soldOrPresoldTestData: string;
 
-export default class GiveAQuotePage {
+export default class HomePage {
     private base: PlaywrightWrapper;
 
     constructor(private page: Page) {
@@ -29,7 +29,6 @@ export default class GiveAQuotePage {
         // Matter Type
         sale: "//label[.='Sale']", // might be parameterized
         purchase: "//label[.='Purchase']", // might be parameterized
-        
     }
 
     getElements(){

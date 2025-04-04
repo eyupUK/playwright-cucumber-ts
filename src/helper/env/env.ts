@@ -2,12 +2,12 @@ import * as dotenv from 'dotenv'
 
 export const getEnv = () => {
     const env = process.env.ENV || "staging";
-    if (process.env.ENV) {
+    if (env) {
         dotenv.config({
             override: true,
-            path: `src/helper/env/.env.${process.env.ENV}`
+            path: `src/helper/env/.env.${env}`
         });
-        console.log(`Environment: ${process.env.ENV}`);
+        console.log(`Environment: ${env}`);
     } else {
         console.error("NO ENV PASSED!");
     }

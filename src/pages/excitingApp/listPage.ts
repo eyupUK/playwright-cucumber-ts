@@ -1,7 +1,7 @@
 import { Page } from "@playwright/test";
 import PlaywrightWrapper from "../../helper/wrapper/PlaywrightWrapper";
 
-export default class ListQuotesPage {
+export default class ListPage {
 
 
     private base: PlaywrightWrapper;
