@@ -6,14 +6,14 @@ export default class APIUtils {
     // constructor() {}
 
     // Utility function to make HTTP requests
-    sendRequest = async (
+    public static async sendRequest (
         base: string,
         method: string,
         endpoint: string,
         data: any = {},
         headers: Record<string, string> = {},  // Add headers as an optional parameter
         queryParams: Record<string, string> = {} // Add query parameters as an optional parameter
-    ): Promise<AxiosResponse> => {
+    ): Promise<AxiosResponse> {
         const url = `${base}${endpoint}`;
         console.log('Request URL:', url);
 
@@ -35,3 +35,10 @@ export default class APIUtils {
         }
     };
 }
+
+// Example usage:
+// const baseUrl = 'https://api.example.com';
+// const response = await APIUtils.sendRequest(baseUrl, "post", "/login", { username: "testuser", password: "testpassword" }, {}, {});
+// console.log('Response:', await response.data.username);
+// console.log('Status:', response.status);
+
