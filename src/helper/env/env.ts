@@ -1,7 +1,7 @@
 import * as dotenv from 'dotenv'
 
 export const getEnv = () => {
-    const env = process.env.ENV || "staging";
+    const env = process.env.ENV || "test";
     if (env) {
         dotenv.config({
             override: true,
