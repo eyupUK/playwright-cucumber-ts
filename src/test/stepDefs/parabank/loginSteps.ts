@@ -10,6 +10,7 @@ setDefaultTimeout(60 * 1000 * 2)
 Given('User goes to home page', async function () {
     homePage = new HomePage(fixture.page);
     await homePage.goto();
+    await homePage.registerParaBank();
   });
 
 

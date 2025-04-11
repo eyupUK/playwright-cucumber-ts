@@ -43,7 +43,7 @@ Before({ tags: "not @auth" }, async function ({ pickle }) {
     fixture.logger = createLogger(options(scenarioName));
     fixture.logger.info("Environment set to: " + environment);
     fixture.logger.info("Browser is set to " + browserType);
-    fixture.logger.info(`Before Scenario: ${ pickle.name }`);
+    fixture.logger.info(`Before Scenario: ${pickle.name}`);
 });
 
 
@@ -73,7 +73,7 @@ Before({ tags: '@auth' }, async function ({ pickle }) {
     fixture.logger = createLogger(options(scenarioName));
     fixture.logger.info("Environment set to: " + environment);
     fixture.logger.info("Browser is set to " + browserType);
-    fixture.logger.info(`Before Scenario: ${ pickle.name }`);
+    fixture.logger.info(`Before Scenario: ${pickle.name}`);
 });
 
 After(async function ({ pickle, result }) {
@@ -81,7 +81,7 @@ After(async function ({ pickle, result }) {
 
     let videoPath: string;
     let img: Buffer;
-    const path = `./ test - results / trace / ${ pickle.id }.zip`;
+    const path = `./test-results/trace/${pickle.id}.zip`;
     videoPath = await fixture.page.video().path();
 
     await context.tracing.stop({ path: path });
@@ -93,23 +93,23 @@ After(async function ({ pickle, result }) {
     if (result?.status == Status.FAILED) {
         console.log("this scenario failed at this step");
     }
-    const bashCommandTrace = `npx playwright show-trace ${ path }`;
-    const traceFileLink = `<a href="https://trace.playwright.dev/" > Open ${ path } </a>`
-    await this.attach(`Trace file: ${ traceFileLink }`, 'text/html');
-    await this.attach(`Command for Trace File: ${ bashCommandTrace }`, 'text/html');
-console.log("Attachments processed AFTER non-api scenarios");
-fixture.logger.info(`After Scenario: ${ pickle.name }`);
+    const bashCommandTrace = `npx playwright show-trace ${path}`;
+    const traceFileLink = `<a href="https://trace.playwright.dev/" > Open ${path} </a>`
+    await this.attach(`Trace file: ${traceFileLink}`, 'text/html');
+    await this.attach(`Command for Trace File: ${bashCommandTrace}`, 'text/html');
+    console.log("Attachments processed AFTER non-api scenarios");
+    fixture.logger.info(`After Scenario: ${pickle.name}`);
 
-await fixture.page.close();
-await context.close();
+    await fixture.page.close();
+    await context.close();
 
-// close browser
-console.log("After this SCENARIO");
-if (browser !== null && browser !== undefined) {
-    await browser.close();
-    console.log("Browser closed");
-}
- 
+    // close browser
+    console.log("After this SCENARIO");
+    if (browser !== null && browser !== undefined) {
+        await browser.close();
+        console.log("Browser closed");
+    }
+
 });
 
 AfterAll(async function () {
@@ -138,8 +138,7 @@ AfterStep({ tags: "not @api" }, async function ({ pickle }) {
     console.log("After Step");
     let img: Buffer;
     img = await fixture.page.screenshot(
-        { path: `./ test - results / screenshots / ${ pickle.name }.png`, type: "png" });
-
-await this.attach(img, "image/png");
-console.log("Screenshot taken after this step");
+        { path: `./test-results/screenshots/${pickle.name}.png`, type: "png" });
+    await this.attach(img, "image/png");
+    console.log("Screenshot taken after this step");
 });
