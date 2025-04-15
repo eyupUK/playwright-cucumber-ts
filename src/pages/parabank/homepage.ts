@@ -4,7 +4,7 @@ import { faker } from '@faker-js/faker';
 import { fixture } from "../../hooks/pageFixture";
 import APIUtils from "../../helper/util/apiUtils";
 
-
+const registerParabank = require("../../helper/util/testData/registerParabank.json");
 
 export default class HomePage {
     private base: PlaywrightWrapper;
@@ -47,7 +47,17 @@ export default class HomePage {
     }
 
     async registerParaBank() {
-        const form =
+        const headers = {
+            "Accept": "*/*",
+            "Content-Type": "application/x-www-form-urlencoded",
+            "Accept-Encoding": "gzip, deflate, br",
+            "Connection": "keep-alive",
+            "Host": "parabank.parasoft.com",
+            "Origin": "https://parabank.parasoft.com",
+            "Referer": "https://parabank.parasoft.com/parabank/register.htm",
+            "cookie": "JSESSIONID=ECC5D01FC25A3B0E103CC86F5E2FF522"
+        };
+        const payLoad =
         {
             "customer.firstName": "E",
             "customer.lastName": "T",
@@ -61,7 +71,7 @@ export default class HomePage {
             "customer.password": "qaz",
             "repeatedPassword": "qaz"
         };
-        const response = await APIUtils.sendRequest(process.env.REGISTERURL_PARABANK, "post", "", form, {}, {});
+        const response = await APIUtils.sendRequest(process.env.REGISTERURL_PARABANK, "post", "", registerParabank.body, registerParabank.headers, {});
         expect(await response.status).toBe(200);
     }
 }

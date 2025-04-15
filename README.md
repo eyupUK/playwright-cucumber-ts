@@ -83,8 +83,11 @@ npm run test:failed
 10. `src\helper\auth` -> Storage state (Auth file)
 11. `src\helper\util` -> Read test data from json & logger
 
+
+## Folder Structure
+
 ```
-Playwright-TS-Cucumber project
+Playwright-Cucumber-TS
 ├── .github
 │   └── workflows
 │       └── ci.yml
