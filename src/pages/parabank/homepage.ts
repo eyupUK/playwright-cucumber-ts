@@ -42,11 +42,12 @@ export default class HomePage {
 
     async verifyLogin() {
         const title = await this.page.title();
-        expect(title).toContain("ParaBank | Accounts Overview");
+        expect(title).toContain("ParaBank | Accounts Overview123");
         console.log("Login successful");
     }
 
     async registerParaBank() {
+
         const headers = {
             "Accept": "*/*",
             "Content-Type": "application/x-www-form-urlencoded",
@@ -55,8 +56,9 @@ export default class HomePage {
             "Host": "parabank.parasoft.com",
             "Origin": "https://parabank.parasoft.com",
             "Referer": "https://parabank.parasoft.com/parabank/register.htm",
-            "cookie": "JSESSIONID=ECC5D01FC25A3B0E103CC86F5E2FF522"
+            "Cookie": "JSESSIONID=451DB0FD9B6E411EA0F615C84D2300AF"
         };
+
         const payLoad =
         {
             "customer.firstName": "E",
@@ -73,5 +75,13 @@ export default class HomePage {
         };
         const response = await APIUtils.sendRequest(process.env.REGISTERURL_PARABANK, "post", "", registerParabank.body, registerParabank.headers, {});
         expect(await response.status).toBe(200);
+    }
+
+    async fetchJSessionId(){
+        const response = await APIUtils.sendRequest(process.env.REGISTERURL_PARABANK, "get", "", {}, {}, {});
+        const cookies = response.headers['set-cookie'];
+        const jsessionid = cookies[0].split(';')[0].split('=')[1];
+        console.log("JSESSIONID: ", jsessionid);
+        return jsessionid;
     }
 }
