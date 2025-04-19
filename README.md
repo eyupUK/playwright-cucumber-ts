@@ -57,8 +57,7 @@ npm run test --tags="@ask"
 
 9. Run scenarios on a specific browser, assigning chromium, firefox or webkit(safari) to the key browser:
 ```bash
-npm config set browser=webkit
-npm run test --tags="@admin"
+BROWSER=firefox npm run test --tags="@admin"
 ```
 if browser kept empty, the framework fetch the browser type from .env file.
 If the browser is empty or unassigned in .env file, browserManager.ts will assign the default browser.
@@ -68,6 +67,26 @@ If the browser is empty or unassigned in .env file, browserManager.ts will assig
 npm run test --tags="@regression"
 npm run test:failed
 ```
+
+11. To install Allure Report:
+```bash
+npm install -g allure-commandline --save-dev
+npm install --save-dev @cucumber/cucumber @cucumber/messages allure-cucumberjs
+```
+
+12. To generate Allure Report:
+```bash
+allure serve allure-results
+```
+13. To run parallel:
+```bash
+PARALLEL=<numberOfThread> npm run test
+```
+14. To run tests in headless mode:
+```bash
+HEAD=false npm run test
+```
+
 
 ### Folder structure
 0. `src\pages` -> All the page (UI screen)

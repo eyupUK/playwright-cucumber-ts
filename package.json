@@ -13,7 +13,6 @@
     "test:prod": "cross-env ENV=prod cucumber-js --config=config/cucumber.js || true",
     "test:qa": "cross-env ENV=qa cucumber-js --config=config/cucumber.js || true",
     "test:local": "cross-env ENV=local cucumber-js --config=config/cucumber.js || true",
-    "test-env": "cucumber-js --config=config/cucumber.js || true",
     "posttest": "npx ts-node src/helper/report/report.ts",
     "test:failed": "cross-env ENV=staging cucumber-js --config=config/cucumber.js -p rerun @rerun.txt"
   },
