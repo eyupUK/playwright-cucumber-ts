@@ -123,7 +123,8 @@ Playwright-Cucumber-TS
 │   │   └── pageFixture.ts
 │   ├── helper
 │   │   ├── env
-│   │   │   └── environment.ts
+│   │   │   ├── .env.dev
+│   │   │   └── .env.test
 │   │   ├── types
 │   │   │   └── types.ts
 │   │   ├── report
