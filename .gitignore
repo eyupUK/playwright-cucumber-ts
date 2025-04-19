@@ -9,3 +9,6 @@ assets
 @rerun.txt
 index.html
 .DS_Store
+allure-results
+tutorialscripts.md
+browser-info.json
