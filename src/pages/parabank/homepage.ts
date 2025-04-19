@@ -42,7 +42,7 @@ export default class HomePage {
 
     async verifyLogin() {
         const title = await this.page.title();
-        expect(title).toContain("ParaBank | Accounts Overview123");
+        expect(title).toContain("ParaBank | Accounts Overview");
         console.log("Login successful");
     }
 
