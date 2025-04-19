@@ -7,8 +7,8 @@ declare global {
             ENV: "staging" | "prod" | "qa" | "dev" | "test" | "local" | "uat" | "demo" | "preprod",
             BASEURL: string,
             HEAD: string,
-            TESTDATA_PATH_A_APP: string
-            TESTDATA_PATH_B_APP: string
+            TESTDATA_PATH_A_APP: string,
+            TESTDATA_PATH_B_APP: string,
         }
     }
 }
