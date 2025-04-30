@@ -41,9 +41,18 @@ TypeScript is a powerful superset of JavaScript that adds optional static typing
 ```bash
 npm i ts-node -D
 ```
-4. `npm i` to install the dependencies
-5. `npx playwright install` to install the browsers
-6. `npm run test` to execute the tests
+4. to install the dependencies
+```bash
+npm i
+```
+5.  to install the browsers
+```bash
+npx playwright install
+```
+6. to execute the tests
+```bash
+npm run test
+``` 
 7. To run a particular test, change:  
 ```
   paths: [
@@ -54,7 +63,6 @@ npm i ts-node -D
 ```bash
 npm run test --tags="@ask"
 ```
-
 9. Run scenarios on a specific browser, assigning chromium, firefox or webkit(safari) to the key browser:
 ```bash
 BROWSER=firefox npm run test --tags="@admin"
