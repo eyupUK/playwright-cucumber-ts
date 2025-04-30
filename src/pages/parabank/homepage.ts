@@ -47,7 +47,6 @@ export default class HomePage {
     }
 
     async registerParaBank() {
-
         const headers = {
             "Accept": "*/*",
             "Content-Type": "application/x-www-form-urlencoded",
@@ -56,25 +55,18 @@ export default class HomePage {
             "Host": "parabank.parasoft.com",
             "Origin": "https://parabank.parasoft.com",
             "Referer": "https://parabank.parasoft.com/parabank/register.htm",
-            "Cookie": "JSESSIONID=451DB0FD9B6E411EA0F615C84D2300AF"
-        };
-
-        const payLoad =
-        {
-            "customer.firstName": "E",
-            "customer.lastName": "T",
-            "customer.address.street": "Upper",
-            "customer.address.city": "Richmo",
-            "customer.address.state": "Great",
-            "customer.address.zipCode": "SW147JG",
-            "customer.phoneNumber": "078434564567",
-            "customer.ssn": "1234567890",
-            "customer.username": "eyup",
-            "customer.password": "qaz",
-            "repeatedPassword": "qaz"
-        };
-        const response = await APIUtils.sendRequest(process.env.REGISTERURL_PARABANK, "post", "", registerParabank.body, registerParabank.headers, {});
-        expect(await response.status).toBe(200);
+            "cookie": "JSESSIONID=" + await this.fetchJSessionId(),
+        }
+        const response = await APIUtils.sendRequest(process.env.REGISTERURL_PARABANK, "post", "", registerParabank.body, headers, {});
+        expect(response.status).toBe(200);
+        expect(response.data).toBeDefined();
+        // expect(response.data.customer.firstName).toBe(registerParabank.body.customer.firstName);
+        // expect(response.data.customer.lastName).toBe(registerParabank.body.customer.lastName);
+        // expect(response.data.customer.username).toBe(registerParabank.body.customer.username);
+        // expect(response.data.customer.password).toBe(registerParabank.body.customer.password);
+        // expect(response.data.customer.email).toBe(registerParabank.body.customer.email);
+        // expect(response.data.customer.phoneNumber).toBe(registerParabank.body.customer.phoneNumber);
+        // expect(response.data.customer.address.street).toBe(registerParabank.body.customer.address.street);
     }
 
     async fetchJSessionId(){
