@@ -23,6 +23,10 @@ export default class HomePage {
         loginButtonLocator: this.page.locator("//input[@value='Log In']"),
     }
 
+    public getHomePageElements(){
+        return this.Elements;
+    }
+    
     async goto() {
         await this.page.goto(process.env.BASEURL);
         await this.page.waitForLoadState();
