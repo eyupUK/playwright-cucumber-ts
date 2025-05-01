@@ -16,8 +16,8 @@
         "customer.address.city": "Richmo",
         "customer.address.state": "Great",
         "customer.address.zipCode": "SW147JG",
-        "customer.phoneNumber": "078434564567",
-        "customer.ssn": "1234567890",
+        "customer.phoneNumber": "07843456456",
+        "customer.ssn": 123456789,
         "customer.username": "eyup",
         "customer.password": "qaz",
         "repeatedPassword": "qaz"
