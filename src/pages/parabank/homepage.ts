@@ -21,7 +21,7 @@ export default class HomePage {
         passwordInput: "//input[@name='password']",
         passwordLocator: this.page.locator("//input[@name='password']").waitFor({ state: "visible", timeout: 10000 }),
         loginButton: "//input[@value='Log In']",
-        loginButton1: this.page.locator("button:text('Log In')", { hasText: "Log In" }),
+        loginButton1: this.page.locator("button:text-is('Log In')", { hasText: "Log In" }),
         loginButtonLocator: this.page.locator("//input[@value='Log In']"),
     }
 
