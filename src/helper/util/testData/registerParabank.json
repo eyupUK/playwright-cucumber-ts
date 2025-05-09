@@ -1,0 +1,25 @@
+{
+    "headers": {
+        "Accept": "*/*",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Accept-Encoding": "gzip, deflate, br",
+        "Connection": "keep-alive",
+        "Host": "parabank.parasoft.com",
+        "Origin": "https://parabank.parasoft.com",
+        "Referer": "https://parabank.parasoft.com/parabank/register.htm",
+        "cookie": "JSESSIONID=34D9B3340C41E798A632525292B7BE76"
+    },
+    "body": {
+        "customer.firstName": "E",
+        "customer.lastName": "T",
+        "customer.address.street": "Upper",
+        "customer.address.city": "Richmo",
+        "customer.address.state": "Great",
+        "customer.address.zipCode": "SW147JG",
+        "customer.phoneNumber": "07843456456",
+        "customer.ssn": 123456789,
+        "customer.username": "eyup",
+        "customer.password": "qaz",
+        "repeatedPassword": "qaz"
+    }
+}

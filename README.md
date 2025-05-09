@@ -41,9 +41,18 @@ TypeScript is a powerful superset of JavaScript that adds optional static typing
 ```bash
 npm i ts-node -D
 ```
-4. `npm i` to install the dependencies
-5. `npx playwright install` to install the browsers
-6. `npm run test` to execute the tests
+4. to install the dependencies
+```bash
+npm i
+```
+5.  to install the browsers
+```bash
+npx playwright install
+```
+6. to execute the tests
+```bash
+npm run test
+``` 
 7. To run a particular test, change:  
 ```
   paths: [
@@ -54,11 +63,9 @@ npm i ts-node -D
 ```bash
 npm run test --tags="@ask"
 ```
-
 9. Run scenarios on a specific browser, assigning chromium, firefox or webkit(safari) to the key browser:
 ```bash
-npm config set browser=webkit
-npm run test --tags="@admin"
+BROWSER=firefox npm run test --tags="@admin"
 ```
 if browser kept empty, the framework fetch the browser type from .env file.
 If the browser is empty or unassigned in .env file, browserManager.ts will assign the default browser.
@@ -68,6 +75,26 @@ If the browser is empty or unassigned in .env file, browserManager.ts will assig
 npm run test --tags="@regression"
 npm run test:failed
 ```
+
+11. To install Allure Report:
+```bash
+npm install -g allure-commandline --save-dev
+npm install --save-dev @cucumber/cucumber @cucumber/messages allure-cucumberjs
+```
+
+12. To generate Allure Report:
+```bash
+allure serve allure-results
+```
+13. To run parallel:
+```bash
+PARALLEL=<numberOfThread> npm run test
+```
+14. To run tests in headless mode:
+```bash
+HEAD=false npm run test
+```
+
 
 ### Folder structure
 0. `src\pages` -> All the page (UI screen)
@@ -83,8 +110,11 @@ npm run test:failed
 10. `src\helper\auth` -> Storage state (Auth file)
 11. `src\helper\util` -> Read test data from json & logger
 
+
+## Folder Structure
+
 ```
-Playwright-TS-Cucumber project
+Playwright-Cucumber-TS
 ├── .github
 │   └── workflows
 │       └── ci.yml
@@ -101,7 +131,8 @@ Playwright-TS-Cucumber project
 │   │   └── pageFixture.ts
 │   ├── helper
 │   │   ├── env
-│   │   │   └── environment.ts
+│   │   │   ├── .env.dev
+│   │   │   └── .env.test
 │   │   ├── types
 │   │   │   └── types.ts
 │   │   ├── report

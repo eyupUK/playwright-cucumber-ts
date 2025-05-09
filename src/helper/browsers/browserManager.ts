@@ -4,14 +4,14 @@ import { LaunchOptions, chromium, firefox, webkit } from "@playwright/test";
 export let browserType: string;
 export const invokeBrowser = () => {
     const head = process.env.HEAD;
-    const isHead = head.toLowerCase() === "true";
+    const isHeadless = !(head.toLowerCase() === "true");
     const options: LaunchOptions = {
-        headless: !isHead,
+        headless: isHeadless,
         // args: ['--start-fullscreen', '--start-maximized']
     }
-    console.log("Running tests in headless mode: " + !isHead);
+    console.log("Running tests in headless mode: " + isHeadless);
 
-    browserType = process.env.npm_config_browser || process.env.BROWSER || "webkit";
+    browserType =  process.env.BROWSER || "webkit";
     console.log("Launching " + browserType + " browser");
     switch (browserType) {
         case "chromium":

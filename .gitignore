@@ -8,7 +8,7 @@ cucumber-report.html
 assets
 @rerun.txt
 index.html
-stepsHelper.ts
-apiAuthHelper.ts
 .DS_Store
 allure-results
+tutorialscripts.md
+browser-info.json
