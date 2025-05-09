@@ -17,12 +17,18 @@ export default class HomePage {
         // Matter Type
         usernameInput: "//input[@name='username']",
         usernameLocator: this.page.locator("//input[@name='username']"),
+        usernameLocator1: this.page.locator("//input[@name='username']").locator("input.[.='email']").getByRole("textbox").waitFor({ state: "visible", timeout: 10000 }),
         passwordInput: "//input[@name='password']",
-        passwordLocator: this.page.locator("//input[@name='password']"),
+        passwordLocator: this.page.locator("//input[@name='password']").waitFor({ state: "visible", timeout: 10000 }),
         loginButton: "//input[@value='Log In']",
+        loginButton1: this.page.locator("button:text-is('Log In')", { hasText: "Log In" }),
         loginButtonLocator: this.page.locator("//input[@value='Log In']"),
     }
 
+    public getHomePageElements(){
+        return this.Elements;
+    }
+    
     async goto() {
         await this.page.goto(process.env.BASEURL);
         await this.page.waitForLoadState();
